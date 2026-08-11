@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evaluación · Community Manager · Tema A</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f7;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .exam {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            padding: 2rem 2.2rem 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            border-bottom: 3px solid #1e2b3c;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0b1a2a;
+        }
+
+        .header .sub {
+            font-size: 0.95rem;
+            color: #3e5a76;
+            background: #eef2f7;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+
+        .theme-indicator {
+            background: #1e2b3c;
+            color: white;
+            font-weight: 700;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+        }
+
+        .user-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            background: #f8faff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid #e3eaf2;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+
+        .user-fields label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            color: #1f3348;
+            font-size: 0.95rem;
+        }
+
+        .user-fields input {
+            border: 1px solid #ccd7e6;
+            border-radius: 8px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.95rem;
+            background: white;
+            width: 200px;
+        }
+
+        .user-fields input:focus {
+            outline: 2px solid #1e2b3c;
+            border-color: transparent;
+        }
+
+        .instructions {
+            background: #f8faff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: #1f3348;
+            border: 1px solid #e3eaf2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .instructions .badge {
+            background: #1e2b3c;
+            color: white;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+        }
+
+        .question {
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #e9eef4;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .q-head {
+            display: flex;
+            gap: 0.6rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #0b1a2a;
+            margin-bottom: 0.4rem;
+        }
+
+        .q-head .num {
+            background: #dce5ef;
+            color: #1f3348;
+            border-radius: 40px;
+            padding: 0 0.9rem;
+            font-size: 0.8rem;
+            line-height: 1.8rem;
+            height: 1.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .q-text {
+            font-weight: 500;
+            padding-top: 0.1rem;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 1.5rem;
+            margin-top: 0.4rem;
+            padding-left: 2.5rem;
+        }
+
+        .options label {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 0.92rem;
+            color: #1d2f44;
+            padding: 0.2rem 0.3rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background: #f4f8fe;
+        }
+
+        .options input[type="radio"] {
+            width: 1rem;
+            height: 1rem;
+            flex-shrink: 0;
+            accent-color: #1e2b3c;
+            margin-top: 0.1rem;
+            cursor: pointer;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+            justify-content: center;
+        }
+
+        .actions button {
+            background: #1e2b3c;
+            color: white;
+            border: none;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .actions button:hover {
+            background: #0b1a2a;
+        }
+
+        .actions button.secondary {
+            background: #dce5ef;
+            color: #1f3348;
+        }
+
+        .actions button.secondary:hover {
+            background: #c8d4e2;
+        }
+
+        .result-box {
+            background: #f4f8fe;
+            border: 1px solid #dce5ef;
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .result-box.visible {
+            display: block;
+        }
+
+        .result-box h3 {
+            font-size: 1.1rem;
+            color: #0b1a2a;
+            margin-bottom: 0.6rem;
+        }
+
+        .result-box textarea {
+            width: 100%;
+            min-height: 150px;
+            border: 1px solid #ccd7e6;
+            border-radius: 12px;
+            padding: 0.8rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            resize: vertical;
+            background: white;
+        }
+
+        .result-box .copy-btn {
+            background: #1e2b3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        .result-box .copy-btn:hover {
+            background: #0b1a2a;
+        }
+
+        .save-instructions {
+            background: #fff8e6;
+            border: 1px solid #f0dca0;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin: 1rem 0 0.5rem;
+            font-size: 0.9rem;
+            color: #5c4a1a;
+        }
+
+        .save-instructions strong {
+            color: #1e2b3c;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #647b96;
+            border-top: 1px solid #e3eaf2;
+            padding-top: 1.2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .exam {
+                padding: 1.5rem 1.2rem;
+            }
+            .options {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+                padding-left: 1.2rem;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .user-fields {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .user-fields input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="exam" id="examContainer">
+
+        <!-- ===== ENCABEZADO ===== -->
+        <div class="header">
+            <div>
+                <h1>📋 Evaluación · Community Manager</h1>
+                <div class="sub">Módulo 1 · 2026</div>
+            </div>
+            <div class="theme-indicator">Tema A</div>
+        </div>
+
+        <!-- ===== DATOS DEL ESTUDIANTE ===== -->
+        <div class="user-fields">
+            <label>
+                Apellido y Nombre:
+                <input type="text" id="studentName" placeholder="Escribe tu nombre completo" />
+            </label>
+            <label>
+                Curso:
+                <input type="text" id="studentCourse" placeholder="Ej: EOI 1" value="EOI" />
+            </label>
+        </div>
+
+        <div class="instructions">
+            <span>📌 <strong>20 preguntas</strong> · Seleccioná la opción correcta</span>
+            <span class="badge">Tema A</span>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PREGUNTAS TEMA A (orden original)                             -->
+        <!-- ============================================================ -->
+
+        <!-- Pregunta 1 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">1</span>
+                <span class="q-text">¿Cuál es la función principal de un Community Manager?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A" /> Publicar contenido todos los días sin interactuar</label>
+                <label><input type="radio" name="q1" value="B" /> Construir una comunidad alrededor de la marca y darle voz en internet</label>
+                <label><input type="radio" name="q1" value="C" /> Responder solo mensajes privados</label>
+                <label><input type="radio" name="q1" value="D" /> Diseñar exclusivamente las imágenes de la marca</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">2</span>
+                <span class="q-text">Según el manual, ¿qué actividades realiza un CM en el día a día?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A" /> Crear contenido, responder comentarios, generar interacción y medir resultados</label>
+                <label><input type="radio" name="q2" value="B" /> Solo programar publicaciones automáticas</label>
+                <label><input type="radio" name="q2" value="C" /> Atender llamadas telefónicas de clientes</label>
+                <label><input type="radio" name="q2" value="D" /> Diseñar el producto de la marca</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">3</span>
+                <span class="q-text">En el ejemplo de AeroConecta, ¿qué hace el CM cuando un pasajero se queja por una demora?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q3" value="A" /> Ignora el comentario para no generar más tensión</label>
+                <label><input type="radio" name="q3" value="B" /> Responde con empatía y ofrece ayuda por mensaje privado</label>
+                <label><input type="radio" name="q3" value="C" /> Borra el comentario inmediatamente</label>
+                <label><input type="radio" name="q3" value="D" /> Publica una explicación técnica sin dirigirse al usuario</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">4</span>
+                <span class="q-text">¿Qué significa el término "prosumidor" en el contexto de las redes sociales?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q4" value="A" /> Persona que solo consume contenido sin interactuar</label>
+                <label><input type="radio" name="q4" value="B" /> Usuario que produce y consume contenido al mismo tiempo</label>
+                <label><input type="radio" name="q4" value="C" /> Profesional que diseña estrategias de marketing</label>
+                <label><input type="radio" name="q4" value="D" /> Algoritmo que recomienda publicaciones</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">5</span>
+                <span class="q-text">¿Cuál es una buena práctica para mantener una relación positiva con la comunidad?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q5" value="A" /> Borrar todos los comentarios negativos</label>
+                <label><input type="radio" name="q5" value="B" /> Responder siempre, aunque sea con un "gracias" o "me gusta"</label>
+                <label><input type="radio" name="q5" value="C" /> Contestar solo los comentarios positivos</label>
+                <label><input type="radio" name="q5" value="D" /> Usar un tono indiferente para no comprometerse</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">6</span>
+                <span class="q-text">Según el manual, ¿qué tipo de contenido funciona mejor en Instagram?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q6" value="A" /> Textos muy largos y enlaces externos</label>
+                <label><input type="radio" name="q6" value="B" /> Fotos de calidad, Reels, Stories y carruseles de imágenes</label>
+                <label><input type="radio" name="q6" value="C" /> Artículos científicos y reportes extensos</label>
+                <label><input type="radio" name="q6" value="D" /> Solo publicaciones de texto sin imágenes</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 7 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">7</span>
+                <span class="q-text">¿Cuál es la principal diferencia entre la voz y el tono de una marca?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q7" value="A" /> La voz es la personalidad constante; el tono se adapta según la situación</label>
+                <label><input type="radio" name="q7" value="B" /> La voz cambia cada semana; el tono es fijo</label>
+                <label><input type="radio" name="q7" value="C" /> Son sinónimos y se usan indistintamente</label>
+                <label><input type="radio" name="q7" value="D" /> La voz se usa en redes sociales; el tono en la web</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 8 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">8</span>
+                <span class="q-text">En el ejemplo de la marca de hamburguesas, ¿cómo cambia el tono cuando hay un problema con un pedido?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q8" value="A" /> Se vuelve más divertido y descontracturado</label>
+                <label><input type="radio" name="q8" value="B" /> Se vuelve serio y empático: "Lamentamos mucho lo ocurrido"</label>
+                <label><input type="radio" name="q8" value="C" /> Se vuelve frío y distante</label>
+                <label><input type="radio" name="q8" value="D" /> No cambia, siempre usa el mismo tono</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 9 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">9</span>
+                <span class="q-text">¿Cuál de las siguientes NO es una habilidad mencionada para un Community Manager?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q9" value="A" /> Redacción y creatividad</label>
+                <label><input type="radio" name="q9" value="B" /> Empatía y diseño básico</label>
+                <label><input type="radio" name="q9" value="C" /> Programación en Python</label>
+                <label><input type="radio" name="q9" value="D" /> Análisis de datos y paciencia</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 10 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">10</span>
+                <span class="q-text">¿Qué recomienda el manual sobre la escucha activa?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q10" value="A" /> Responder solo con información básica y sin ofrecer ayuda adicional</label>
+                <label><input type="radio" name="q10" value="B" /> Entender qué necesita el otro y ofrecer soluciones completas</label>
+                <label><input type="radio" name="q10" value="C" /> Esperar a que el usuario resuelva sus dudas solo</label>
+                <label><input type="radio" name="q10" value="D" /> Derivar todas las consultas a un chatbot</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 11 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">11</span>
+                <span class="q-text">¿Qué práctica ética debe evitar un CM profesional?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q11" value="A" /> Comprar seguidores para aparentar más popularidad</label>
+                <label><input type="radio" name="q11" value="B" /> Usar bancos de imágenes gratuitos</label>
+                <label><input type="radio" name="q11" value="C" /> Reconocer errores y pedir disculpas</label>
+                <label><input type="radio" name="q11" value="D" /> Responder con respeto incluso ante insultos</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 12 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">12</span>
+                <span class="q-text">Según el manual, ¿qué se debe hacer con los comentarios negativos?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q12" value="A" /> Borrarlos inmediatamente para proteger la imagen de la marca</label>
+                <label><input type="radio" name="q12" value="B" /> No borrarlos (a menos que sean insultos) y responder con respeto</label>
+                <label><input type="radio" name="q12" value="C" /> Ignorarlos y esperar que desaparezcan</label>
+                <label><input type="radio" name="q12" value="D" /> Responder con el mismo tono agresivo</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 13 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">13</span>
+                <span class="q-text">¿Cuál es la recomendación sobre el uso de mayúsculas en diseño visual?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q13" value="A" /> Usar mayúsculas en párrafos largos para dar énfasis</label>
+                <label><input type="radio" name="q13" value="B" /> Usarlas solo en títulos cortos, botones y etiquetas</label>
+                <label><input type="radio" name="q13" value="C" /> Escribir siempre todo en mayúsculas para que se vea moderno</label>
+                <label><input type="radio" name="q13" value="D" /> Evitar las mayúsculas por completo</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 14 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">14</span>
+                <span class="q-text">Según la guía de diseño, ¿cuántas familias tipográficas se recomienda usar como máximo?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q14" value="A" /> 1</label>
+                <label><input type="radio" name="q14" value="B" /> 2 o 3</label>
+                <label><input type="radio" name="q14" value="C" /> 5</label>
+                <label><input type="radio" name="q14" value="D" /> Sin límite</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 15 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">15</span>
+                <span class="q-text">¿Qué regla de colores se menciona para lograr armonía en el diseño?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q15" value="A" /> 50-30-20</label>
+                <label><input type="radio" name="q15" value="B" /> 60-30-10</label>
+                <label><input type="radio" name="q15" value="C" /> 70-20-10</label>
+                <label><input type="radio" name="q15" value="D" /> 80-10-10</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 16 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">16</span>
+                <span class="q-text">En diseño visual, ¿cómo se debe jerarquizar las imágenes?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q16" value="A" /> Todas las imágenes deben tener el mismo tamaño</label>
+                <label><input type="radio" name="q16" value="B" /> Definir una imagen principal que ocupe más espacio y secundarias que acompañen</label>
+                <label><input type="radio" name="q16" value="C" /> Usar imágenes muy pequeñas sin propósito</label>
+                <label><input type="radio" name="q16" value="D" /> Colocar todas las imágenes en el centro</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 17 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">17</span>
+                <span class="q-text">¿Qué herramienta se menciona como básica para diseñar contenido visual?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q17" value="A" /> Photoshop</label>
+                <label><input type="radio" name="q17" value="B" /> Canva</label>
+                <label><input type="radio" name="q17" value="C" /> Illustrator</label>
+                <label><input type="radio" name="q17" value="D" /> CorelDRAW</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 18 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">18</span>
+                <span class="q-text">¿Cuál es un ejemplo de banco de imágenes gratuito mencionado en el manual?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q18" value="A" /> Shutterstock</label>
+                <label><input type="radio" name="q18" value="B" /> Getty Images</label>
+                <label><input type="radio" name="q18" value="C" /> Unsplash</label>
+                <label><input type="radio" name="q18" value="D" /> Adobe Stock</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 19 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">19</span>
+                <span class="q-text">Según el manual, ¿qué debe incluir una infografía sobre "Las 5 reglas de oro del Community Manager"?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q19" value="A" /> Solo texto sin imágenes</label>
+                <label><input type="radio" name="q19" value="B" /> Íconos y texto breve, clara y atractiva</label>
+                <label><input type="radio" name="q19" value="C" /> Un video explicativo</label>
+                <label><input type="radio" name="q19" value="D" /> Un enlace a una página web</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 20 -->
+        <div class="question">
+            <div class="q-head">
+                <span class="num">20</span>
+                <span class="q-text">¿Qué consejo se da para elegir la paleta de colores a partir de una foto?</span>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="q20" value="A" /> Usar los colores primarios sin modificarlos</label>
+                <label><input type="radio" name="q20" value="B" /> Extraer un color de la foto con el selector de Canva</label>
+                <label><input type="radio" name="q20" value="C" /> Usar solo blanco y negro</label>
+                <label><input type="radio" name="q20" value="D" /> Copiar la paleta de otra marca</label>
+            </div>
+        </div>
+
+        <!-- ===== BOTONES ===== -->
+        <div class="actions">
+            <button id="showResultsBtn">📊 Ver respuestas seleccionadas</button>
+            <button id="clearBtn" class="secondary">🗑️ Limpiar todo</button>
+        </div>
+
+        <!-- ===== CUADRO DE RESULTADOS ===== -->
+        <div id="resultBox" class="result-box">
+            <h3>📋 Resumen de respuestas</h3>
+            <p style="font-size:0.9rem; color:#3e5a76; margin-bottom:0.5rem;">
+                Revisá tus respuestas y luego copiá el texto.
+            </p>
+            <textarea id="resultText" readonly></textarea>
+            <button id="copyBtn" class="copy-btn">📄 Copiar al portapapeles</button>
+
+            <div class="save-instructions">
+                <strong>💾 Instrucciones para guardar en tu escritorio:</strong><br />
+                1. Después de copiar, abre el <strong>Bloc de notas</strong> (Notepad).<br />
+                2. Presiona <strong>Ctrl + V</strong> para pegar el texto.<br />
+                3. Ve a <strong>Archivo &gt; Guardar como...</strong><br />
+                4. Elige <strong>Escritorio</strong> como ubicación.<br />
+                5. Ponle un nombre, por ejemplo: <strong>MI_EVALUACION_CM.txt</strong> y haz clic en Guardar.
+            </div>
+        </div>
+
+        <div class="footer">
+            Community Manager · Módulo 1 · 2026 — Tema A
+        </div>
+
+    </div>
+
+    <script>
+        // ============================================================
+        //  OBTENER RESPUESTAS
+        // ============================================================
+        function getSelectedAnswers() {
+            const questions = document.querySelectorAll('.question');
+            const answers = {};
+            let allAnswered = true;
+
+            questions.forEach((qDiv, index) => {
+                const numSpan = qDiv.querySelector('.num');
+                const qNum = numSpan ? numSpan.textContent : (index + 1);
+                const radios = qDiv.querySelectorAll('input[type="radio"]');
+                let selected = null;
+                radios.forEach((radio) => {
+                    if (radio.checked) {
+                        selected = radio.value;
+                    }
+                });
+                if (selected === null) {
+                    allAnswered = false;
+                    answers[qNum] = '—';
+                } else {
+                    answers[qNum] = selected;
+                }
+            });
+
+            return { answers, allAnswered };
+        }
+
+        // ============================================================
+        //  MOSTRAR RESULTADOS
+        // ============================================================
+        function showResults() {
+            const name = document.getElementById('studentName').value.trim() || '(sin nombre)';
+            const course = document.getElementById('studentCourse').value.trim() || '(sin curso)';
+            const { answers, allAnswered } = getSelectedAnswers();
+
+            let output = `========================================\n`;
+            output += `  EVALUACIÓN COMMUNITY MANAGER\n`;
+            output += `  Módulo 1 - 2026\n`;
+            output += `  Tema: A\n`;
+            output += `  Nombre: ${name}\n`;
+            output += `  Curso: ${course}\n`;
+            output += `  Fecha: ${new Date().toLocaleDateString()}\n`;
+            output += `========================================\n\n`;
+            output += `RESPUESTAS SELECCIONADAS:\n\n`;
+
+            const sortedKeys = Object.keys(answers).sort((a, b) => parseInt(a) - parseInt(b));
+            sortedKeys.forEach((qNum) => {
+                const val = answers[qNum];
+                output += `Pregunta ${qNum}: ${val}\n`;
+            });
+
+            if (!allAnswered) {
+                output += `\n⚠️ ATENCIÓN: Hay preguntas sin responder (marcadas con "—").\n`;
+            }
+
+            output += `\n----------------------------------------\n`;
+            output += `  Recuerda guardar este archivo como .txt\n`;
+            output += `  en tu escritorio y entregarlo al docente.\n`;
+            output += `----------------------------------------\n`;
+
+            document.getElementById('resultText').value = output;
+            document.getElementById('resultBox').classList.add('visible');
+            document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // ============================================================
+        //  LIMPIAR TODO
+        // ============================================================
+        function clearAll() {
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach((radio) => {
+                radio.checked = false;
+            });
+            document.getElementById('resultBox').classList.remove('visible');
+        }
+
+        // ============================================================
+        //  COPIAR AL PORTAPAPELES
+        // ============================================================
+        function copyResults() {
+            const text = document.getElementById('resultText').value;
+            if (!text) {
+                alert('Primero haz clic en "Ver respuestas seleccionadas".');
+                return;
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('✅ Respuestas copiadas al portapapeles.\n\nAhora abre el Bloc de notas, pega (Ctrl+V) y guarda el archivo en tu escritorio.');
+                }).catch(() => {
+                    fallbackCopy(text);
+                });
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                alert('✅ Respuestas copiadas al portapapeles.\n\nAhora abre el Bloc de notas, pega (Ctrl+V) y guarda el archivo en tu escritorio.');
+            } catch (err) {
+                alert('❌ No se pudo copiar. Selecciona el texto manualmente, copia (Ctrl+C) y pégalo en el Bloc de notas.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // ============================================================
+        //  EVENTOS
+        // ============================================================
+        document.getElementById('showResultsBtn').addEventListener('click', showResults);
+        document.getElementById('clearBtn').addEventListener('click', clearAll);
+        document.getElementById('copyBtn').addEventListener('click', copyResults);
+    </script>
+
+</body>
+</html>
